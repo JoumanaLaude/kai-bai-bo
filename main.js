@@ -10,37 +10,35 @@ function playRound() {
     let playerSelection = prompt("Do you choose kai, bai, or bo?");
     let computerSelection = computerPlay();
 
-    if ((playerSelection === "kai" && computerSelection === "bai") ||
-        (playerSelection === "bai" && computerSelection === "bo") ||
-        (playerSelection === "bo" && computerSelection === "kai")) {
-        console.log(`You win! ${playerSelection} beats the computer's selection of ${computerSelection}!`)
+    if ((playerSelection === "kai" && computerSelection === "bo") ||
+        (playerSelection === "bai" && computerSelection === "kai") ||
+        (playerSelection === "bo" && computerSelection === "bai")) {
+        alert(`You win this round! ${playerSelection} beats the computer's selection of ${computerSelection}!`)
         playerScore++
     }
     else if (playerSelection === computerSelection) {
-        console.log(`This round is a tie! No points earned.`);
+        alert(`This round is a tie! No points earned.`);
     }
     else {
-        console.log(`You lose! The computer's selection ${computerSelection} beats ${playerSelection}!`)
+        alert(`You lose! The computer's selection ${computerSelection} beats ${playerSelection}!`)
         computerScore++
     }
 }
 
 function game() {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 2; i++) {
         playRound();
         console.log(`Your score: ${playerScore} | Computer score: ${computerScore}`);
     }
     if (playerScore > computerScore) {
-        console.log("You won more rounds!");
+        alert("You won the game by winning more rounds!");
     }
     else if (computerScore > playerScore) {
-        console.log("You lost this game. The computer won more rounds than you.");
+        alert("You lost this game. The computer won more rounds than you.");
     }
     else {
-        console.log("The final result is a tie!");
+        alert("The final result is a tie!");
     }
 }
-
-// console.log(playRound(playerSelection, computerSelection));
 
 game();
